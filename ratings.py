@@ -2,6 +2,7 @@
 
 
 # put your code here
+
 def ratings_res(file):
     ratings = open(file)
     rating_restaurants = {}
@@ -10,9 +11,14 @@ def ratings_res(file):
         lines  = rating.split(":")
         rating_restaurants[lines[0]] = lines[1]
     ratings.close()
+
+def display_res(rating_restaurants):
     key_res = sorted(rating_restaurants.items())
     for name in key_res:
-        print(f"{name[0]} is rated at {name[1]}.")
+        alpha_name = f"{name[0]} is rated at {name[1]}."
+        
+
+def add_res(rating_restaurants):
     prompt_res = input('Enter Restaurant Name: ')
     prompt_rating = int(input('Enter Restaurant Rating: '))
     if prompt_rating > 0 and prompt_rating <= 5:
@@ -27,4 +33,5 @@ def ratings_res(file):
         updated_list = sorted(rating_restaurants.items())
         for name in updated_list:
             print(f"{name[0]} is rated at {name[1]}.")
+
 ratings_res("scores.txt")
